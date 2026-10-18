@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomoc s učením</title>
+    <link id="themeCSS" rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="layout">
+        <nav class="navbar" id="navbar" aria-label="Hlavní navigace">
+            <button class="toggle-btn" id="toggleBtn" type="button" aria-label="Zmenšit navigaci">☰</button>
+            <p class="navbar-title">Kudy kam</p>
+            <ul class="nav-links">
+                <li><a href="#uvod"><span class="icon">🏠</span><span class="link-text">Úvod</span></a></li>
+                <li><a href="#predmety"><span class="icon">📚</span><span class="link-text">Předměty</span></a></li>
+                <li><a href="#poznamky"><span class="icon">📝</span><span class="link-text">Tipy k učení</span></a></li>
+                <li><a href="#testovani"><span class="icon">✏️</span><span class="link-text">Testování</span></a></li>
+                <li><input type="checkbox" id="darkmode-toggle"/>
+                    <label for="darkmode-toggle">
+                        <svg version="1.1" class="sun" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <svg version="1.1" class="moon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                            <path d="M20.9 13.1A9 9 0 0 1 10.9 3.1 9 9 0 1 0 20.9 13.1Z" fill="currentColor" />
+                        </svg>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section id="uvod">
+                <h1>Vítejte na stránce Pomoc s učením</h1>
+                <p>Tato stránka ti pomůže zopakovat si školní látku, pochopit důležité pojmy a procvičit si znalosti pomocí krátkých testů.</p>
+                <p>V části <strong>Předměty</strong> si vyber téma, které potřebuješ procvičit. U jednotlivých kapitol najdeš vysvětlení, vzorce a příklady.</p>
+                <div class="vysvetleni-box">
+                    <p><strong>Jak stránku používat?</strong></p>
+                    <ol>
+                        <li>Otevři si předmět a vyber konkrétní kapitolu.</li>
+                        <li>Přečti si vysvětlení a projdi si příklady krok za krokem.</li>
+                        <li>Na konci přejdi do části Testování a ověř si, co sis zapamatoval/a.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="predmety">
+                <h2>Předměty</h2>
+                <p>Vyber předmět a otevři si kapitolu kliknutím na její název. Kapitoly jsou rozdělené na učivo základní a střední školy.</p>
+
+                <details open>
+                    <summary>Matematika</summary>
+                    <p>Matematika zkoumá čísla, vztahy, tvary a způsoby, jak řešit problémy. Při počítání si hlídej znaménka, pořadí početních operací a jednotky.</p>
+
+                    <details class="zakladka">
+                        <summary>Algebra – základní škola</summary>
+                        <p>Algebra pracuje s čísly, proměnnými a matematickými vztahy. Proměnnou obvykle označujeme písmenem, například <strong>x</strong>.</p>
+
+                        <details>
+                            <summary>Desetinná čísla</summary>
+                            <p>Desetinné číslo zapisujeme s desetinnou čárkou. Číslice za čárkou vyjadřují desetiny, setiny, tisíciny a další části celku.</p>
+                            <p>Desetinné číslo lze převést na zlomek. Počet desetinných míst určuje, zda je ve jmenovateli 10, 100, 1 000 atd.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklady:</strong></p>
+                                <ul>
+                                    <li>0,1 = 1/10 (jedna desetina)</li>
+                                    <li>0,25 = 25/100 = 1/4 (jedna čtvrtina)</li>
+                                    <li>0,5 = 5/10 = 1/2 (jedna polovina)</li>
+                                    <li>0,75 = 75/100 = 3/4 (tři čtvrtiny)</li>
+                                </ul>
+                                <p>Při sčítání a odčítání zapisuj čísla pod sebe tak, aby desetinné čárky byly přesně pod sebou.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Zlomky</summary>
+                            <p>Zlomek vyjadřuje část celku a zapisuje se jako <strong>čitatel / jmenovatel</strong>. Čitatel je nahoře a říká, kolik částí máme. Jmenovatel je dole a říká, na kolik stejných částí je celek rozdělen. Jmenovatel nesmí být nula.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklad:</strong> 3/4 znamená tři části ze čtyř stejně velkých částí.</p>
+                                <ul>
+                                    <li>1/2 = polovina</li>
+                                    <li>1/4 = čtvrtina</li>
+                                    <li>3/4 = tři čtvrtiny</li>
+                                </ul>
+                                <p><strong>Sčítání a odčítání:</strong> Nejdříve potřebujeme společného jmenovatele.</p>
+                                <ul>
+                                    <li>1/2 + 1/4 = 2/4 + 1/4 = 3/4</li>
+                                    <li>3/4 − 1/2 = 3/4 − 2/4 = 1/4</li>
+                                </ul>
+                                <p><strong>Násobení:</strong> vynásobíme čitatele mezi sebou a jmenovatele mezi sebou. <strong>Dělení:</strong> druhý zlomek převrátíme a násobíme.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Procenta</summary>
+                            <p>Procento znamená jednu setinu celku. Značí se symbolem <strong>%</strong>. Například 25 % znamená 25 dílů ze 100, tedy čtvrtinu.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>10 % = 10/100 = 0,1</li>
+                                    <li>25 % = 25/100 = 0,25 = 1/4</li>
+                                    <li>50 % = 50/100 = 0,5 = 1/2</li>
+                                    <li>75 % = 75/100 = 0,75</li>
+                                </ul>
+                                <p><strong>Příklad:</strong> Kolik je 20 % z 300 Kč? Vypočítáme 0,20 × 300 = <strong>60 Kč</strong>.</p>
+                                <p>Pro výpočet procentní části převeď procenta na desetinné číslo a vynásob jím základ.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Rovnice</summary>
+                            <p>Rovnice je matematické tvrzení, ve kterém se dvě strany rovnají. Obsahuje neznámou, například <strong>x</strong>. Cílem je zjistit, jaké číslo rovnici splňuje.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklad:</strong> 2x + 3 = 7</p>
+                                <ol>
+                                    <li>Odečteme 3 od obou stran: 2x = 4.</li>
+                                    <li>Obě strany vydělíme 2: x = 2.</li>
+                                    <li>Zkouška: 2 × 2 + 3 = 7, takže výsledek je správný.</li>
+                                </ol>
+                                <p>Důležité pravidlo: co uděláš s jednou stranou rovnice, musíš udělat také s druhou.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Lineární rovnice</summary>
+                            <p>Lineární rovnice s jednou neznámou má neznámou pouze v první mocnině. Často má tvar <strong>ax + b = c</strong>, kde a, b a c jsou známá čísla.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklad:</strong> 3x − 6 = 9</p>
+                                <ol>
+                                    <li>Přičteme 6: 3x = 15.</li>
+                                    <li>Vydělíme 3: x = 5.</li>
+                                    <li>Zkouška: 3 × 5 − 6 = 9.</li>
+                                </ol>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Lineární nerovnice</summary>
+                            <p>Nerovnice porovnává dvě strany pomocí znaků &lt;, &gt;, ≤ nebo ≥. Jejím řešením může být více čísel, nejen jedno.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklad:</strong> 2x + 3 &lt; 7</p>
+                                <ol>
+                                    <li>Odečteme 3: 2x &lt; 4.</li>
+                                    <li>Vydělíme 2: x &lt; 2.</li>
+                                </ol>
+                                <p>Pokud nerovnici násobíš nebo dělíš záporným číslem, musíš obrátit znaménko nerovnosti.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Soustavy lineárních rovnic</summary>
+                            <p>Soustava obsahuje dvě nebo více rovnic se stejnými neznámými. Hledáme hodnoty, které splňují všechny rovnice současně. Používá se například dosazovací nebo sčítací metoda.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklad:</strong></p>
+                                <ul>
+                                    <li>x − y = 1</li>
+                                    <li>2x + 3y = 7</li>
+                                </ul>
+                                <p>Z první rovnice vyjádříme x = y + 1 a dosadíme do druhé:</p>
+                                <ul>
+                                    <li>2(y + 1) + 3y = 7</li>
+                                    <li>2y + 2 + 3y = 7</li>
+                                    <li>5y = 5, tedy y = 1</li>
+                                    <li>x = y + 1 = 2</li>
+                                </ul>
+                                <p>Řešení je <strong>x = 2, y = 1</strong>.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Vyjádření neznámé ze vzorce</summary>
+                            <p>Jde o úpravu vzorce tak, aby hledaná proměnná byla samostatně na jedné straně rovnice. Používáme opačné početní operace a zachováváme rovnost obou stran.</p>
+                            <div class="vysvetleni-box">
+                                <p><strong>Příklad:</strong> Obvod čtverce je O = 4a. Chceme vyjádřit stranu a.</p>
+                                <ul>
+                                    <li>O = 4a</li>
+                                    <li>Obě strany vydělíme 4.</li>
+                                    <li><strong>a = O/4</strong></li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Algebraické vzorce</summary>
+                            <p>Algebraické vzorce umožňují rychle upravovat výrazy bez dlouhého roznásobování. Je užitečné znát je zpaměti a umět je použít oběma směry.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li><strong>Druhá mocnina součtu:</strong> (a + b)² = a² + 2ab + b²</li>
+                                    <li><strong>Druhá mocnina rozdílu:</strong> (a − b)² = a² − 2ab + b²</li>
+                                    <li><strong>Rozdíl čtverců:</strong> a² − b² = (a − b)(a + b)</li>
+                                </ul>
+                                <p><strong>Příklad:</strong> (x + 3)² = x² + 6x + 9.</p>
+                            </div>
+                        </details>
+                    </details>
+
+                    <details class="zakladka">
+                        <summary>Geometrie – základní škola</summary>
+                        <p>Geometrie se zabývá rovinnými a prostorovými útvary. Při výpočtech rozlišuj délku, obvod, obsah, povrch a objem a vždy používej správné jednotky.</p>
+
+                        <details>
+                            <summary>Obvody a obsahy</summary>
+                            <p><strong>Obvod</strong> je délka hranice útvaru. <strong>Obsah</strong> vyjadřuje velikost plochy uvnitř útvaru. Obvod měříme například v centimetrech, obsah ve čtverečních centimetrech.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Čtverec: O = 4a, S = a²</li>
+                                    <li>Obdélník: O = 2(a + b), S = a × b</li>
+                                    <li>Trojúhelník: O = a + b + c, S = (a × vₐ)/2</li>
+                                </ul>
+                                <p><strong>Příklad:</strong> Čtverec se stranou 4 cm má obvod 16 cm a obsah 16 cm².</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Poloměr a průměr</summary>
+                            <p><strong>Poloměr r</strong> vede od středu kruhu ke kružnici. <strong>Průměr d</strong> prochází středem a spojuje dva body kružnice. Průměr je dvakrát větší než poloměr.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>d = 2r</li>
+                                    <li>r = d/2</li>
+                                </ul>
+                                <p>Pokud je poloměr 5 cm, průměr je 10 cm.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Obvod a obsah kruhu</summary>
+                            <p>Kružnice je zakřivená hranice, zatímco kruh je celá plocha uvnitř této hranice. Ve vzorcích se používá číslo π (přibližně 3,14).</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Obvod kružnice: O = 2πr nebo O = πd</li>
+                                    <li>Obsah kruhu: S = πr²</li>
+                                </ul>
+                                <p><strong>Příklad:</strong> Pro r = 2 cm je obsah přibližně 3,14 × 2² = 12,56 cm².</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Kužel a jehlan</summary>
+                            <p>Kužel má kruhovou podstavu a jeden vrchol. Jehlan má podstavu ve tvaru mnohoúhelníku a boční trojúhelníkové stěny. Oba mají objem rovný třetině součinu obsahu podstavy a výšky.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Kužel: V = (1/3) × πr² × v</li>
+                                    <li>Jehlan: V = (1/3) × Sₚ × v</li>
+                                </ul>
+                                <p>Sₚ označuje obsah podstavy a v kolmou výšku tělesa.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Krychle a kvádr</summary>
+                            <p>Krychle má šest stejně velkých čtvercových stěn. Kvádr má šest obdélníkových stěn, přičemž protější stěny jsou stejně velké.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Krychle: objem V = a³, povrch S = 6a²</li>
+                                    <li>Kvádr: objem V = abc, povrch S = 2(ab + ac + bc)</li>
+                                </ul>
+                                <p>Objem udává, kolik prostoru těleso zabírá; povrch je součet obsahů všech jeho stěn.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Kružnice a kruh</summary>
+                            <p>Kružnice je pouze čára tvořící hranici. Kruh zahrnuje i plochu uvnitř. Proto pro kružnici běžně počítáme obvod a pro kruh obvod i obsah.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Kružnice: délka O = 2πr</li>
+                                    <li>Kruh: obvod O = 2πr, obsah S = πr²</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Rovnoběžníky</summary>
+                            <p>Rovnoběžník je čtyřúhelník, jehož protější strany jsou rovnoběžné. Patří sem například obdélník, kosočtverec a kosodélník.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Obdélník: protější strany jsou stejně dlouhé a všechny úhly mají 90°.</li>
+                                    <li>Kosočtverec: všechny strany jsou stejně dlouhé.</li>
+                                    <li>Kosodélník: protější strany jsou stejně dlouhé a rovnoběžné.</li>
+                                    <li>Obsah rovnoběžníku: S = a × vₐ.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Trojúhelníky</summary>
+                            <p>Trojúhelník má tři strany a součet jeho vnitřních úhlů je vždy 180°. Podle stran rozlišujeme rovnostranný, rovnoramenný a různostranný; podle úhlů ostroúhlý, pravoúhlý a tupoúhlý.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Rovnostranný: všechny strany jsou stejně dlouhé a každý úhel má 60°.</li>
+                                    <li>Rovnoramenný: dvě strany mají stejnou délku.</li>
+                                    <li>Pravoúhlý: jeden úhel má 90°.</li>
+                                    <li>Obsah: S = (a × vₐ)/2.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Koule</summary>
+                            <p>Koule je prostorové těleso, jehož body na povrchu jsou stejně vzdálené od středu. Nemá hrany ani vrcholy. Poloměr r je vzdálenost středu od povrchu.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Povrch koule: S = 4πr²</li>
+                                    <li>Objem koule: V = (4/3)πr³</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Úhly</summary>
+                            <p>Úhel popisuje rozevření dvou polopřímek se společným počátkem. Měří se ve stupních (°).</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Ostrý úhel: méně než 90°.</li>
+                                    <li>Pravý úhel: přesně 90°.</li>
+                                    <li>Tupý úhel: více než 90° a méně než 180°.</li>
+                                    <li>Přímý úhel: přesně 180°.</li>
+                                    <li>Plný úhel: 360°.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Prostorové tvary</summary>
+                            <p>Prostorová tělesa mají tři rozměry: délku, šířku a výšku. U mnoha těles určujeme povrch a objem.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Krychle: 6 stěn, 12 hran a 8 vrcholů.</li>
+                                    <li>Kvádr: také 6 stěn, 12 hran a 8 vrcholů.</li>
+                                    <li>Koule: nemá rovinné stěny, hrany ani vrcholy.</li>
+                                    <li>Válec: má dvě kruhové podstavy a plášť.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Symetrie</summary>
+                            <p>Osová souměrnost znamená, že se útvar po přeložení podle osy překryje sám se sebou. Středová souměrnost odpovídá otočení o 180° kolem středu.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Čtverec má 4 osy souměrnosti.</li>
+                                    <li>Obdélník má 2 osy souměrnosti.</li>
+                                    <li>Kruh má nekonečně mnoho os souměrnosti.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Geometrické transformace</summary>
+                            <p>Transformace mění polohu, orientaci nebo velikost útvaru. Základními transformacemi jsou posunutí, otočení, osová souměrnost a stejnolehlost.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>Posunutí: útvar se přesune, ale nemění tvar ani velikost.</li>
+                                    <li>Otočení: útvar se otáčí kolem daného bodu.</li>
+                                    <li>Osová souměrnost: vznikne zrcadlový obraz podle osy.</li>
+                                    <li>Stejnolehlost: útvar se zvětší nebo zmenší v daném poměru.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Trigonometrie</summary>
+                            <p>Trigonometrie zkoumá vztahy mezi úhly a stranami trojúhelníků. V pravoúhlém trojúhelníku je přepona naproti pravému úhlu.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li>sin α = protilehlá odvěsna / přepona</li>
+                                    <li>cos α = přilehlá odvěsna / přepona</li>
+                                    <li>tan α = protilehlá odvěsna / přilehlá odvěsna</li>
+                                </ul>
+                                <p>Tyto poměry pomáhají vypočítat neznámou stranu nebo úhel.</p>
+                            </div>
+                        </details>
+                    </details>
+
+                    <details class="stredni">
+                        <summary>Algebra – střední škola</summary>
+                        <p>Na střední škole se algebra rozšiřuje o přesnější zápis logických vztahů, práci s množinami, složitější úpravy výrazů a rovnic.</p>
+                        <details>
+                            <summary>Výroková logika</summary>
+                            <p>Výrok je oznamovací věta, o které lze určit, zda je pravdivá, nebo nepravdivá. Otázky a rozkazy výroky nejsou.</p>
+                            <div class="vysvetleni-box">
+                                <ul>
+                                    <li><strong>Negace:</strong> „není pravda, že…“ – obrací pravdivost výroku.</li>
+                                    <li><strong>Konjunkce (A ∧ B):</strong> A a B; pravdivá je jen tehdy, když jsou pravdivé oba výroky.</li>
+                                    <li><strong>Disjunkce (A ∨ B):</strong> A nebo B; v běžné logice stačí, aby byl pravdivý alespoň jeden.</li>
+                                    <li><strong>Exkluzivní disjunkce:</strong> platí právě jeden z výroků.</li>
+                                    <li><strong>Implikace (A ⇒ B):</strong> jestliže A, pak B.</li>
+                                    <li><strong>Ekvivalence (A ⇔ B):</strong> A platí právě tehdy, když platí B.</li>
+                                </ul>
+                                <p><strong>Příklad:</strong> „Jestliže je číslo dělitelné čtyřmi, pak je sudé“ je implikace.</p>
+                            </div>
+                        </details>
+
+                        <details>
+                            <summary>Množiny a množinové operace</summary>
+                            <p>Množina je soubor jednoznačně určených prvků. Prvek může do množiny patřit, nebo nepatřit. Množiny se často označují velkými písmeny, například A a B.</p>
+                            <div class="vysvetleni-box">
+                                <p>Nechť A = {1, 2, 3} a B = {3, 4, 5}.</p>
+                                <ul>
+                                    <li><strong>Průnik A ∩ B:</strong> prvky společné oběma množinám, tedy {3}.</li>
+                                    <li><strong>Sjednocení A ∪ B:</strong> všechny prvky z obou množin bez opakování, tedy {1, 2, 3, 4, 5}.</li>
+                                    <li><strong>Rozdíl A \\ B:</strong> prvky z A, které nejsou v B, tedy {1, 2}.</li>
+                                    <li><strong>Podmnožina:</strong> A je podmnožinou B, pokud každý prvek A patří také do B.</li>
+                                    <li><strong>Komplement:</strong> prvky z univerzální množiny, které do dané množiny nepatří; závisí na zvolené univerzální množině.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </details>
+
+                    <details class="stredni">
+                        <summary>Geometrie – střední škola</summary>
+                        <p>Středoškolská geometrie rozvíjí práci se vzorci, souřadnicemi, vektory a vlastnostmi rovinných i prostorových útvarů.</p>
+                    </details>
+                </details>
+
+                <details>
+                    <summary>Informatika</summary>
+                    <p>Informatika se zabývá zpracováním informací, počítači, programy, sítěmi a bezpečným používáním digitálních technologií.</p>
+                    <details class="zakladka">
+                        <summary>Hardware</summary>
+                        <p>Hardware jsou fyzické části počítače, na které si můžeš sáhnout. Každá součást má určitou úlohu.</p>
+                        <div class="vysvetleni-box">
+                            <ul>
+                                <li><strong>CPU – procesor:</strong> provádí instrukce a řídí výpočty.</li>
+                                <li><strong>RAM – operační paměť:</strong> dočasně uchovává data právě používaných programů; po vypnutí se její obsah běžně ztratí.</li>
+                                <li><strong>GPU – grafická karta:</strong> zpracovává obraz a grafické výpočty.</li>
+                                <li><strong>SSD/HDD:</strong> dlouhodobě ukládají soubory a programy.</li>
+                                <li><strong>Základní deska:</strong> propojuje jednotlivé komponenty.</li>
+                                <li><strong>Zdroj:</strong> dodává komponentám elektrickou energii.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="zakladka">
+                        <summary>Software</summary>
+                        <p>Software jsou programy a instrukce, které počítači říkají, co má dělat. Na rozdíl od hardwaru nejde o fyzické součásti.</p>
+                        <div class="vysvetleni-box">
+                            <ul>
+                                <li><strong>Operační systém:</strong> například Windows, Linux nebo Android; spravuje hardware a spouštění programů.</li>
+                                <li><strong>Aplikace:</strong> programy pro konkrétní úkoly, například prohlížeč, editor textu nebo hra.</li>
+                                <li><strong>Ovladač:</strong> umožňuje operačnímu systému komunikovat se zařízením.</li>
+                                <li><strong>Firmware:</strong> software uložený přímo v zařízení.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="zakladka">
+                        <summary>Počítačové sítě a internet</summary>
+                        <p>Počítačová síť propojuje zařízení, aby si mohla předávat data. Internet je celosvětová síť propojených sítí.</p>
+                        <div class="vysvetleni-box">
+                            <ul>
+                                <li><strong>Router:</strong> směruje data mezi sítěmi a často zajišťuje Wi-Fi.</li>
+                                <li><strong>IP adresa:</strong> identifikuje zařízení nebo síťové rozhraní v síti.</li>
+                                <li><strong>DNS:</strong> převádí názvy domén na IP adresy.</li>
+                                <li><strong>LAN:</strong> místní síť, například doma nebo ve škole.</li>
+                                <li><strong>Wi-Fi:</strong> bezdrátový způsob připojení k síti.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    <details class="zakladka">
+                        <summary>Kybernetická bezpečnost</summary>
+                        <p>Kybernetická bezpečnost chrání zařízení, účty a data před zneužitím, ztrátou nebo poškozením.</p>
+                        <div class="vysvetleni-box">
+                            <ul>
+                                <li>Používej dlouhá a jedinečná hesla; vhodný je správce hesel.</li>
+                                <li>Zapni vícefaktorové ověření, pokud je dostupné.</li>
+                                <li>Neotvírej podezřelé odkazy a přílohy.</li>
+                                <li>Pravidelně aktualizuj systém i aplikace.</li>
+                                <li>Důležitá data zálohuj na jiné místo.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </details>
+
+                <details>
+                    <summary>Angličtina</summary>
+                    <p>Angličtinu se uč nejlépe pravidelným opakováním slovíček, čtením krátkých textů a tvorbou vlastních vět.</p>
+                    <details class="zakladka">
+                        <summary>Základní slovíčka</summary>
+                        <div class="vysvetleni-box">
+                            <ul>
+                                <li>apple – jablko</li>
+                                <li>school – škola</li>
+                                <li>book – kniha</li>
+                                <li>computer – počítač</li>
+                                <li>water – voda</li>
+                                <li>friend – kamarád / kamarádka</li>
+                                <li>dog – pes</li>
+                                <li>cat – kočka</li>
+                            </ul>
+                            <p><strong>Tip:</strong> Zakryj český překlad, zkus si ho vybavit a potom se zkontroluj. Slovo si také použij ve vlastní větě.</p>
+                        </div>
+                    </details>
+                    <details class="zakladka">
+                        <summary>Sloveso „to be“</summary>
+                        <p>Sloveso <strong>to be</strong> znamená „být“. Používáme ho například při popisu osoby nebo věci.</p>
+                        <div class="vysvetleni-box">
+                            <ul>
+                                <li>I am – já jsem</li>
+                                <li>You are – ty jsi / vy jste</li>
+                                <li>He is – on je</li>
+                                <li>She is – ona je</li>
+                                <li>It is – ono/to je</li>
+                                <li>We are – my jsme</li>
+                                <li>They are – oni jsou</li>
+                            </ul>
+                            <p><strong>Příklad:</strong> I am a student. = Jsem student.</p>
+                        </div>
+                    </details>
+                </details>
+            </section>
+
+            <section id="poznamky">
+                <h2>Tipy k učení</h2>
+                <p>Několik jednoduchých postupů, které ti pomohou učit se efektivněji.</p>
+                <details>
+                    <summary>Aktivní vybavování</summary>
+                    <p>Po přečtení látky zavři poznámky a zkus vlastními slovy vysvětlit, co sis zapamatoval/a. Potom se vrať k textu a doplň, co chybělo.</p>
+                </details>
+                <details>
+                    <summary>Opakování v rozestupech</summary>
+                    <p>Neuč se vše jen jednou dlouho. Vrať se k tématu ještě tentýž den, další den a později znovu. Krátká opakování pomáhají udržet znalosti v paměti.</p>
+                </details>
+                <details>
+                    <summary>Uč se na příkladech</summary>
+                    <p>U matematiky nestačí znát vzorec. Vyřeš několik příkladů a u každého si vysvětli, proč používáš právě daný postup.</p>
+                </details>
+                <details>
+                    <summary>Plánování</summary>
+                    <p>Rozděl si učení na menší úkoly, například 20–30 minut práce a krátkou přestávku. Začni tématem, které potřebuješ nejvíce procvičit.</p>
+                </details>
+            </section>
+
+            <section id="testovani">
+                <h2>Testování</h2>
+                <p>Vyber předmět a téma, ze kterého se chceš otestovat. Po zodpovězení otázek si zobrazíš výsledek.</p>
+                <div class="test-selection">
+                    <label for="subjectSelect">Předmět</label>
+                    <select id="subjectSelect">
+                        <option value="">Vyber předmět</option>
+                        <option value="matematika">Matematika</option>
+                        <option value="informatika">Informatika</option>
+                        <option value="anglictina">Angličtina</option>
+                    </select>
+
+                    <label for="topicSelect">Téma</label>
+                    <select id="topicSelect" disabled>
+                        <option value="">Nejprve vyber předmět</option>
+                    </select>
+
+                    <button id="startTest" type="button" disabled>Spustit test</button>
+                </div>
+                <div id="testContainer" aria-live="polite"></div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

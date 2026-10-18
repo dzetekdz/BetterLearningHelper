@@ -1,0 +1,659 @@
+/* ========================================
+   TMAVÝ REŽIM – POMOC S UČENÍM
+   Ulož jako dark.css
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0b1120;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+/* ========================================
+   ROZLOŽENÍ STRÁNKY
+======================================== */
+
+.layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+    position: sticky;
+    top: 20px;
+    flex: 0 0 240px;
+    width: 240px;
+    min-width: 0;
+    height: calc(100vh - 40px);
+    padding: 20px;
+    background-color: #111827;
+    border: 1px solid #263449;
+    border-radius: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: flex-basis 0.3s ease, width 0.3s ease, padding 0.3s ease;
+}
+
+.navbar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f1f5f9;
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+/* ========================================
+   TLAČÍTKO NAVBARU
+======================================== */
+
+.toggle-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    margin-bottom: 25px;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    background-color: #1e293b;
+    color: #f8fafc;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.toggle-btn:hover {
+    background-color: #334155;
+    border-color: #475569;
+}
+
+/* ========================================
+   ODKAZY V NAVBARU
+======================================== */
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin-bottom: 12px;
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    color: #cbd5e1;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    background-color: #263449;
+    color: #ffffff;
+}
+
+.icon {
+    flex: 0 0 24px;
+    text-align: center;
+    font-size: 21px;
+}
+
+.link-text {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========================================
+   HLAVNÍ OBSAH
+======================================== */
+
+.content {
+    flex: 1 1 0;
+    min-width: 0;
+    width: 100%;
+}
+
+/* ========================================
+   JEDNOTLIVÉ SEKCE
+======================================== */
+
+section {
+    width: 100%;
+    min-width: 0;
+    padding: 30px;
+    margin: 0 0 20px;
+    background-color: #111827;
+    border: 1px solid #273449;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    scroll-margin-top: 20px;
+    overflow-wrap: anywhere;
+}
+
+section h1,
+section h2 {
+    margin-top: 0;
+    color: #f8fafc;
+}
+
+section h1 {
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+section h2 {
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+section h3,
+section h4 {
+    color: #e2e8f0;
+}
+
+section p,
+section li {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+strong {
+    color: #f8fafc;
+}
+
+/* ========================================
+   ZMENŠENÝ NAVBAR
+======================================== */
+
+.navbar.collapsed {
+    flex: 0 0 80px;
+    width: 80px;
+    padding: 20px 10px;
+}
+
+.navbar.collapsed .toggle-btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar.collapsed .nav-links a {
+    justify-content: center;
+    gap: 0;
+    padding: 12px 0;
+}
+
+.navbar.collapsed .link-text,
+.navbar.collapsed .navbar-title {
+    display: none;
+}
+
+/* ========================================
+   ROZBALOVACÍ SEZNAMY
+======================================== */
+
+details {
+    font-size: 14px;
+    color: #dbe4f0;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    background-color: #172033;
+}
+
+summary {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f1f5f9;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+summary:hover {
+    color: #a5b4fc;
+}
+
+details p {
+    margin-top: 15px;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+details details {
+    background-color: #1b263a;
+}
+
+/* ========================================
+   KATEGORIE MATERIÁLŮ
+======================================== */
+
+.zakladka {
+    font-size: 14px;
+    color: #e2e8f0;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #397b53;
+    border-radius: 10px;
+    background-color: #173126;
+}
+
+.stredni {
+    font-size: 14px;
+    color: #e2e8f0;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #496ca8;
+    border-radius: 10px;
+    background-color: #1b2943;
+}
+
+.vysvetleni-box {
+    font-size: 14px;
+    color: #e2e8f0;
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #94602e;
+    border-radius: 10px;
+    background-color: #30271d;
+}
+
+.zakladka p,
+.stredni p,
+.vysvetleni-box p,
+.zakladka li,
+.stredni li,
+.vysvetleni-box li {
+    color: #e2e8f0;
+}
+
+/* ========================================
+   VÝBĚR TESTU
+======================================== */
+
+.test-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 450px;
+    margin-top: 25px;
+}
+
+.test-selection label {
+    width: auto;
+    height: auto;
+    position: static;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: default;
+    font-weight: bold;
+    font-size: 14px;
+    color: #e2e8f0;
+}
+
+.test-selection select {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    background-color: #172033;
+    color: #f1f5f9;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.test-selection select:focus {
+    outline: 2px solid #818cf8;
+    outline-offset: 2px;
+}
+
+.test-selection select:disabled {
+    background-color: #202a3b;
+    color: #94a3b8;
+}
+
+/* ========================================
+   TLAČÍTKA TESTOVÁNÍ
+======================================== */
+
+.test-selection button,
+#testContainer button {
+    padding: 12px 20px;
+    border: 1px solid #6366f1;
+    border-radius: 10px;
+    background-color: #4f46e5;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.test-selection button:hover:not(:disabled),
+#testContainer button:hover {
+    background-color: #4338ca;
+}
+
+.test-selection button:active:not(:disabled),
+#testContainer button:active {
+    transform: translateY(1px);
+}
+
+.test-selection button:disabled,
+.test-selection select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ========================================
+   KARTY OTÁZEK
+======================================== */
+
+.question {
+    width: 100%;
+    min-width: 0;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    background-color: #172033;
+}
+
+.question h4 {
+    margin-top: 0;
+    color: #f1f5f9;
+    line-height: 1.6;
+}
+
+.answer {
+    display: block;
+    margin: 12px 0;
+    color: #cbd5e1;
+    cursor: pointer;
+    line-height: 1.6;
+}
+
+.answer input {
+    width: auto;
+    height: auto;
+    visibility: visible;
+    margin-right: 8px;
+    accent-color: #818cf8;
+}
+
+/* ========================================
+   VÝSLEDEK TESTU
+======================================== */
+
+.test-result {
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #6366f1;
+    border-radius: 12px;
+    background-color: #202044;
+    color: #e0e7ff;
+}
+
+.test-result h3 {
+    margin-top: 0;
+    color: #eef2ff;
+}
+
+.test-result p {
+    color: #e0e7ff;
+}
+
+/* ========================================
+   PŘEPÍNAČ SVĚTLÉHO / TMAVÉHO REŽIMU
+   Zachovává ID #darkmode-toggle z opraveného CSS.
+======================================== */
+
+#darkmode-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+#darkmode-toggle + label {
+    position: relative;
+    display: block;
+    flex: 0 0 50px;
+    width: 50px;
+    min-width: 50px;
+    height: 26px;
+    margin: 0;
+    padding: 0;
+    background: #242424;
+    border: 1px solid #475569;
+    border-radius: 999px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#darkmode-toggle + label::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 27px;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(180deg, #777, #3a3a3a);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s, background 0.3s;
+}
+
+#darkmode-toggle:checked + label {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+#darkmode-toggle:checked + label::after {
+    transform: translateX(-24px);
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+}
+
+#darkmode-toggle + label svg {
+    position: absolute;
+    top: 6px;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    pointer-events: none;
+}
+
+#darkmode-toggle + label svg.sun {
+    left: 6px;
+    fill: #64748b;
+    transition: fill 0.3s;
+}
+
+#darkmode-toggle + label svg.moon {
+    right: 6px;
+    fill: #ffffff;
+    transition: fill 0.3s;
+}
+
+#darkmode-toggle:checked + label svg.sun {
+    fill: #ffffff;
+}
+
+#darkmode-toggle:checked + label svg.moon {
+    fill: #64748b;
+}
+
+#darkmode-toggle:focus-visible + label {
+    outline: 2px solid #a5b4fc;
+    outline-offset: 3px;
+}
+
+/* ========================================
+   MOBILNÍ ZAŘÍZENÍ
+======================================== */
+
+@media (max-width: 600px) {
+    .layout {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-basis: 150px;
+        width: 150px;
+        padding: 12px;
+    }
+
+    .navbar.collapsed {
+        flex-basis: 60px;
+        width: 60px;
+        padding: 12px 6px;
+    }
+
+    .nav-links a {
+        gap: 8px;
+        padding: 10px 6px;
+        font-size: 13px;
+    }
+
+    .icon {
+        flex-basis: 22px;
+        font-size: 19px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    section h1 {
+        font-size: 25px;
+    }
+
+    section h2 {
+        font-size: 21px;
+    }
+
+    .question {
+        padding: 15px;
+    }
+}
+
+/* ========================================
+   MENŠÍ MOBILY
+======================================== */
+
+@media (max-width: 380px) {
+    .layout {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .navbar {
+        flex-basis: 125px;
+        width: 125px;
+        padding: 8px;
+    }
+
+    .navbar.collapsed {
+        flex-basis: 50px;
+        width: 50px;
+        padding: 8px 4px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    section {
+        padding: 12px;
+    }
+}
+
+/* ========================================
+   OMEZENÍ ANIMACÍ
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Oprava přepínače v tmavém režimu */
+#darkmode-toggle + label {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+}
+
+#darkmode-toggle + label::after {
+    left: 3px;
+    transform: translateX(0);
+    background: linear-gradient(180deg, #ffcc89, #d8860b);
+}
+
+#darkmode-toggle:checked + label {
+    background: #242424;
+    border-color: #475569;
+}
+
+#darkmode-toggle:checked + label::after {
+    transform: translateX(24px);
+    background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+#darkmode-toggle + label svg.sun {
+    fill: #ffffff;
+}
+
+#darkmode-toggle + label svg.moon {
+    fill: #64748b;
+}
+
+#darkmode-toggle:checked + label svg.sun {
+    fill: #64748b;
+}
+
+#darkmode-toggle:checked + label svg.moon {
+    fill: #ffffff;
+}
