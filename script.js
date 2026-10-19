@@ -60,55 +60,90 @@ if (subjectSelect && topicSelect && startTestButton && testContainer) {
     });
 }
 
+// Náhodně promíchá prvky pole, aniž by změnila původní pole.
+function shuffleArray(array) {
+    const shuffled = [...array];
+    
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    
+    return shuffled;
+}
+
 /* =========================================
    ZOBRAZENÍ TESTU
-========================================= */
+===========================================*/
 
 function showTest(test) {
     testContainer.innerHTML = "";
-
+    
+    // Promíchání otázek a odpovědí.
+    // U každé odpovědi si ponecháme její původní index,
+    // abychom mohli správně určit správnou odpověď.
+    const shuffledTest = {
+        ...test,
+        questions: shuffleArray(test.questions).map(q => {
+            const shuffledAnswers = shuffleArray(
+                q.answers.map((answer, originalIndex) => ({
+                    answer,
+                    originalIndex
+                }))
+            );
+            
+            return {
+                ...q,
+                answers: shuffledAnswers.map(a => a.answer),
+                correct: shuffledAnswers.findIndex(
+                    a => a.originalIndex === q.correct
+                )
+            };
+        })
+    };
+    
     const heading = document.createElement("h3");
-    heading.textContent = test.name;
+    heading.textContent = shuffledTest.name;
     testContainer.appendChild(heading);
-
-    test.questions.forEach((q, index) => {
+    
+    shuffledTest.questions.forEach((q, index) => {
         const questionElement = document.createElement("div");
         questionElement.className = "question";
-
+        
         const title = document.createElement("h4");
         title.textContent = `${index + 1}. ${q.question}`;
-
         questionElement.appendChild(title);
-
+        
         q.answers.forEach((answer, answerIndex) => {
             const label = document.createElement("label");
             label.className = "answer";
-
+            
             const input = document.createElement("input");
             input.type = "radio";
             input.name = `question-${index}`;
             input.value = answerIndex;
-
+            
             label.appendChild(input);
             label.appendChild(
                 document.createTextNode(" " + answer)
             );
-
+            
             questionElement.appendChild(label);
         });
-
+        
         testContainer.appendChild(questionElement);
     });
-
+    
     const submitButton = document.createElement("button");
     submitButton.textContent = "Vyhodnotit test";
     submitButton.type = "button";
     submitButton.style.marginTop = "20px";
-
-    submitButton.addEventListener("click", function () {
-        checkTestAnswers(test);
+    
+    submitButton.addEventListener("click", function() {
+        checkTestAnswers(shuffledTest);
     });
-
+    
     testContainer.appendChild(submitButton);
 }
 
@@ -119,30 +154,30 @@ function showTest(test) {
 function checkTestAnswers(test) {
     let score = 0;
     let unanswered = 0;
-
+    
     test.questions.forEach((q, index) => {
         const selected = testContainer.querySelector(
             `input[name="question-${index}"]:checked`
         );
-
+        
         if (!selected) {
             unanswered++;
         } else if (Number(selected.value) === q.correct) {
             score++;
         }
     });
-
+    
     if (unanswered > 0) {
         alert(`Nezodpověděl jsi ještě ${unanswered} otázek.`);
         return;
     }
-
+    
     const percentage = Math.round(
         (score / test.questions.length) * 100
     );
-
+    
     let grade;
-
+    
     if (percentage >= 90) {
         grade = "Výborně!";
     } else if (percentage >= 75) {
@@ -154,7 +189,7 @@ function checkTestAnswers(test) {
     } else {
         grade = "Zkus si látku znovu projít.";
     }
-
+    
     testContainer.innerHTML = `
         <div class="test-result">
             <h3>Výsledek: ${test.name}</h3>
@@ -166,10 +201,10 @@ function checkTestAnswers(test) {
             </button>
         </div>
     `;
-
+    
     document.getElementById("retryTest").addEventListener(
         "click",
-        function () {
+        function() {
             showTest(test);
         }
     );
@@ -715,16 +750,14 @@ const testDatabase = {
                 { question: "A = {1,2,3}, B = {3,4}. A ∩ B =", answers: ["{3}", "{1,2,3,4}", "{1,2}", "{4}"], correct: 0 },
                 { question: "A = {1,2,3}, B = {3,4}. A ∪ B =", answers: ["{4}", "{1,2,3,4}", "{1,2}", "{3}"], correct: 1 },
                 { question: "A \\ B pro A={1,2,3}, B={3,4} je", answers: ["{1,2}", "{3}", "{4}", "{1,2,3,4}"], correct: 0 },
-                { question: "Značka ∈ znamená", answers: ["je podmnožinou", "průnik", "patří do množiny", "sjednocení"], correct: 2 },
-                { question: "Značka ⊆ znamená", answers: ["je podmnožinou", "patří jako prvek", "rozdíl", "průnik"], correct: 0 },
                 { question: "Množina je", answers: ["rovnice", "soubor jednoznačně určených prvků", "geometrický úhel", "druh čísla"], correct: 1 },
                 { question: "Prázdná množina se značí", answers: ["∈", "∅", "∞", "⊆"], correct: 1 },
                 { question: "Počet prvků množiny {a,b,c} je", answers: ["3", "4", "1", "2"], correct: 0 },
-                { question: "Množiny A a B jsou disjunktní, když", answers: ["nemají společné prvky", "obsahují jen čísla", "jsou totožné vždy", "mají stejné prvky"], correct: 0 },
                 { question: "Pokud každý prvek A patří do B, pak A je", answers: ["sjednocením B", "průnikem prázdné množiny", "podmnožinou B", "rozdílem B"], correct: 2 },
                 { question: "A = {2,4,6}. Patří 4 do A?", answers: ["Ano", "Jen pokud A je prázdná", "Nelze určit", "Ne"], correct: 0 },
                 { question: "A = {1,3,5}. Patří 2 do A?", answers: ["Ano", "Vždy", "2 je prázdná množina", "Ne"], correct: 3 },
-                { question: "Komplement množiny tvoří prvky univerzální množiny, které", answers: ["do dané množiny nepatří", "patří do všech množin", "jsou jen v průniku", "jsou větší než 10"], correct: 0 }
+                { question: "Z jaké množiny se tvoří intervaly?", answers: ["Přirozená čísla", "reálná čísla", "celá čísla", "racionální čísla"], correct: 2},
+                
             ]
         },
     },
